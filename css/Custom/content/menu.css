@@ -13,6 +13,8 @@
 
     float: left;
     width: 250px;
+      font-family:  Elephant;
+      /*font-weight: bold;*/
 }
 
 .menu li a {
