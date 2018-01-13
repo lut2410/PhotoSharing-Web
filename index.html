@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Photo Sharing</title>
+
+	<link rel="stylesheet" type="text/css" href="css/library/bootstrap/bootstrap.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/library/font-awesome.min.css"> -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/custom/my-button.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/custom/slideshow/slideshow.css"> -->
+	<link rel="stylesheet" type="text/css" href="css/custom/slider.css">
+	<link rel="stylesheet" type="text/css" href="css/custom/style.css">
+	<link rel="stylesheet" type="text/css" href="css/custom/content/my-search-container.css">
+	<link rel="stylesheet" type="text/css" href="css/custom/content/categories.css">
+	<link rel="stylesheet" type="text/css" href="css/custom/content/menu.css">
+	<link rel="stylesheet" type="text/css" href="css/custom/content/main-content.css">
+	<link rel="stylesheet" type="text/css" href="css/custom/footer.css">
+	<!-- <link rel="stylesheet" type="text/css" href="csscustom//content/image-detail.css"> -->
+<!-- JS -->
+	<!-- library -->
+		<script src="js/library/jquery.min.js"></script>
+    	<script src="js/library/bootstrap/bootstrap.bundle.min.js"></script>
+    	<script src="js/library/bootstrap/bootstrap.min.js"></script>
+ 	<!-- custom -->
+    	<!-- slider -->
+    	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  		<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js'></script>
+    	<script src="js/custom/slider.js"></script>
+<!-- END JS -->
+
+</head>
+<body>
+	<div class="row">
+		<div class="col-md-12">
+			<!-- Logo -->
+			<div class="col-md-9 col-xs-9">
+				<img src="data/logo..png">
+			</div>
+			<!-- END Menu -->
+
+			<!-- Login -->
+			<div class="col-md-3 col-xs-3">
+				<button id="menu-toggle" class="btn btn-orange btn-border-rev-o">Sign In</button>
+				<button id="menu-toggle" class="btn btn-orange btn-border-rev-o lightingbutton">Sign Up</button>
+			</div>
+			<!-- END Login -->
+		</div>
+	</div>
+
+<!-- slide -->
+<div class="slider">
+ 
+  <ul>
+    <li class="active"></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <ol>
+    <!-- point -->
+    <li class="active"><i name="slide_switch" class="fa fa-circle-o"></i></li>
+    <li><i class="fa fa-circle-o"></i></li>
+    <li><i class="fa fa-circle-o"></i></li>
+    <li><i class="fa fa-circle-o"></i></li>
+    <li><i class="fa fa-circle-o"></i></li>
+    <!-- playpause -->
+    <i class="fa playpause fa-pause-circle-o" title="pause"></i>
+  </ol>
+  <!-- controll -->
+  <span class="controll active"></span>
+  <span class="controll"></span>
+</div>
+<!-- end slider -->
+
+	<div class="row content">
+		<!-- Categories -->
+		<div class="col-md-2 col-xs-2" id="categories">
+			<div class="row" id="categories-title">
+				<p>
+					Categories
+				</p>
+			</div>
+			<div class="row categories-item">
+				All
+			</div>
+			<div class="row categories-item">
+				Animal
+			</div>
+			<div class="row categories-item">
+				Love
+			</div>
+			<div class="row categories-item">
+				Motor
+			</div>
+			<div class="row categories-item">
+				Music
+			</div>
+			<div class="row categories-item">
+				Nature
+			</div>
+			<div class="row categories-item">
+				Food&Drink
+			</div>
+			<div class="row categories-item">
+				People
+			</div>
+			<div class="row categories-item">
+				Space
+			</div>
+			<div class="row categories-item">
+				Sport
+			</div>
+			<div class="row categories-item">
+				Technology
+			</div>
+			<div class="row categories-item">
+				Travel
+			</div>
+			<div class="row categories-item" style="border-width: 0px 1px 1px 1px;">
+				Vintage
+			</div>
+			
+		</div>
+		<!-- END Categories -->
+
+		<div class="col-md-10 col-xs-10">
+			<div class="row">
+				<!-- Main Menu -->
+				<div class="col-md-9 col-xs-9 menu">
+					<ul>
+						<li><a href="#">Top photos</a></li>
+					  	<li><a href="#">Recent photos</a></li>
+					  	<li><a href="#">Random photos</a></li>
+					</ul>
+				</div>
+				<!-- END Main Menu -->
+
+				<!-- Search -->
+				<div class="col-md-3 col-xs-3">
+					<input type="search" placeholder="Search" style="background: white url(images/search-icon.png) no-repeat 9px center;">
+				</div>
+				<!-- END Search -->	
+			</div>
+
+			<div class="row main-content">
+				<img class="content-image" src="images/sources/1.png">
+				<div id="overlay">
+				     <div class="image-container">
+				        <img id="larger-image" src="image0">
+				        <!-- The Close Button -->
+  						<span id="close">&times;</span>
+				     </div>
+				</div>
+				<!-- <img class="content-image" src="images/sources/2.png">
+				<img class="content-image" src="images/sources/3.png">
+				<img class="content-image" src="images/sources/4.png">
+				<img class="content-image" src="images/sources/5.png">
+				<img class="content-image" src="images/sources/6.png">
+				<img class="content-image" src="images/sources/7.png">
+				<img class="content-image" src="images/sources/8.png">
+				<img class="content-image" src="images/sources/9.png">
+				<img class="content-image" src="images/sources/10.png"> -->
+
+				<script>
+					$('.content-image').click(function () {
+				        el = document.getElementById("overlay");
+						el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+
+						img = document.getElementById("larger-image");
+						img.setAttribute('src', $(this).attr('src'));
+				    });
+
+				    $('#close').click(function() {
+				    	el = document.getElementById("overlay");
+						el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+
+						img = document.getElementById("larger-image");
+						img.setAttribute('src', 'image0');
+				    });
+				</script>
+			</div>
+		</div>
+		
+	</div>
+
+<!-- FOOTER -->
+<footer>
+	<div class="row">
+		<div class="col-sm-4">
+		</div>
+		<div class="col-sm-4">
+			<div class ="textcenter">
+				<p>_______________________________</p>
+				<p>About us:</p>
+				<p>Group 14 -- HCI SE215.I11</p>
+			</div>
+			<div class="col-sm-2">
+			</div>
+			<div class="col-sm-5">
+				<p>Lê Huỳnh Tấn Vũ</p>
+  				<p>Ngô Vũ Quyền</p>
+  				<p>Phạm Quang Vĩ</p>
+			</div>
+			<div class="col-sm-3 textright">
+				<p>	- 13521050</p>
+				<p>	- 14520748</p>
+				<p>	- 14521076</p>
+			</div>
+		</div>
+		<div class="col-sm-4">
+		</div>
+	</div>
+</footer>
+<!-- END FOOTER -->
+</body>
+</html>

@@ -1,0 +1,14 @@
+.textcenter {
+  text-align: center;
+}
+.textright {
+  text-align: right;
+}
+#footer {
+    clear: both;
+    position: relative;
+    z-index: 10;
+    height: 3em;
+    margin-top: -3em;
+
+}
