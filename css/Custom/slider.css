@@ -1,4 +1,4 @@
-
+@import url('style.css');
 
 * {
   -webkit-box-sizing: border-box;
@@ -12,7 +12,7 @@
   font-weight: normal*/
 }
 body {
-  background: #eee
+  background: var(--gray-lv1);
 }
 h1 {
   text-align: center;

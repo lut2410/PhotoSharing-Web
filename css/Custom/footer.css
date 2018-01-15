@@ -1,3 +1,4 @@
+@import url('style.css');
 .textcenter {
   text-align: center;
 }
@@ -10,5 +11,14 @@
     z-index: 10;
     height: 3em;
     margin-top: -3em;
+    color: var(--gray-lv4);
+}
+/** html #footer {
+   position:absolute;
+   top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
+}*/
+#footer p {
+    margin: 0.2em 0;
+    padding: 0;
 
 }

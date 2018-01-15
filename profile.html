@@ -6,10 +6,11 @@
 	<link rel="stylesheet" type="text/css" href="css/library/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/custom/my-button.css">
-	<link rel="stylesheet" type="text/css" href="css/custom/slider.css">
+	<link rel="stylesheet" type="text/css" href="css/custom/avatar.css">
 	<link rel="stylesheet" type="text/css" href="css/custom/style.css">
 	<link rel="stylesheet" type="text/css" href="css/custom/content/my-search-container.css">
 	<link rel="stylesheet" type="text/css" href="css/custom/content/categories.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/custom/content/menu.css"> -->
 	<link rel="stylesheet" type="text/css" href="css/custom/tab.css">
 	<link rel="stylesheet" type="text/css" href="css/custom/content/main-content.css">
 	<link rel="stylesheet" type="text/css" href="css/custom/footer.css">
@@ -19,10 +20,7 @@
     	<script src="js/library/bootstrap/bootstrap.bundle.min.js"></script>
     	<script src="js/library/bootstrap/bootstrap.min.js"></script>
  	<!-- custom -->
-    	<!-- slider -->
-    	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-  		<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js'></script>
-    	<script src="js/custom/slider.js"></script>
+
 <!-- END JS -->
 
 </head>
@@ -30,45 +28,23 @@
 	<div class="row">
 		<div class="col-md-12">
 			<!-- Logo -->
-			<div class="col-md-9 col-xs-9">
+			<div class="col-md-8 col-xs-8">
 				<img src="data/logo..png">
 			</div>
 			<!-- END Menu -->
 
 			<!-- Login -->
-			<div class="col-md-3 col-xs-3">
-				<button id="menu-toggle" class="btn btn-orange btn-border-rev-o lightingbutton">Sign Up</button>
-				<button id="menu-toggle" class="btn btn-orange btn-border-rev-o">Sign In</button>
+			<div class="col-md-4 col-xs-4	">
+				<button id="menu-toggle" class="btn btn-orange btn-border-rev-o lightingbutton" onclick="window.location.href='index.html'">Log Out</a></button>
+				<!-- <button type="button" onclick="alert('Hello world!')">Click Me!</button> -->
+				<img src="data/avatar.jpg" alt="Avatar" class="btn btn-orange btn-border-rev-o avatar" onclick="window.location.href='profile.html'">
+				<button id="menu-toggle" class="btn btn-orange btn-border-rev-o" >Upload</button>
+
 			</div>
 			<!-- END Login -->
 		</div>
 	</div>
 
-<!-- slide -->
-<div class="slider">
- 
-  <ul>
-    <li class="active"></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
-  <ol>
-    <!-- point -->
-    <li class="active"><i name="slide_switch" class="fa fa-circle-o"></i></li>
-    <li><i class="fa fa-circle-o"></i></li>
-    <li><i class="fa fa-circle-o"></i></li>
-    <li><i class="fa fa-circle-o"></i></li>
-    <li><i class="fa fa-circle-o"></i></li>
-    <!-- playpause -->
-    <i class="fa playpause fa-pause-circle-o" title="pause"></i>
-  </ol>
-  <!-- controll -->
-  <span class="controll active"></span>
-  <span class="controll"></span>
-</div>
-<!-- end slider -->
 
 	<div class="row content">
 		<!-- Categories -->
@@ -126,9 +102,9 @@
 				<!-- TAB -->
 				<div class="col-md-9 col-xs-9 tab-slider--nav">
 					<ul class="tab-slider--tabs">
-						<li class="tab-slider--trigger active" rel="tab1">Top photos</a></li>
-						<li class="tab-slider--trigger" rel="tab2">Recent photos</li>
-						<li class="tab-slider--trigger" rel="tab3">Random photos</li>
+						<li class="tab-slider--trigger active" rel="tab1">Profile</li>
+						<li class="tab-slider--trigger" rel="tab2">Uploaded Photos</li>
+						<li class="tab-slider--trigger" rel="tab3">Favorite Photos</li>
 					</ul>
 				</div>
 				<!-- Search -->
@@ -144,7 +120,17 @@
 			<div class = "content-result profile">
 					<div class="tab-slider--container">
 					<div id="tab1" class="tab-slider--body">
-						
+						<div class="col-md-6 col-xs-6">
+							<img src="data/avatar.jpg" alt="Avatar" style="width:38vw;border-radius: 5px" >
+						</div>
+						<!-- infor -->
+						<div class="col-md-6 col-xs-6">
+						<p><b>Membership date:</b> 10-10-2010</p>
+						<p><b>Number of photos:</b> 27</p>
+						<p><b>Username:</b> lut2410</p>
+						<p><i><a href="#change_email" target="_blank">Change email</a></i></p>
+						<p><i><a href="#change_password" target="_blank">Change password</a></i></p>
+						</div>
 					</div>
 					<div id="tab2" class="tab-slider--body">
 						
@@ -154,9 +140,7 @@
 					</div>
 				</div>
 				<!-- END TAB -->
-				
 			</div>
-
 				
 		</div>
 		
@@ -192,8 +176,8 @@
 	</div>
 <!-- END FOOTER -->
 </div>
-
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  		<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
  		<script src="js/custom/tab.js"></script>
+
 </body>
 </html>

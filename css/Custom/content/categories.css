@@ -1,7 +1,10 @@
+@import url('style.css');
 #categories {
+	min-width: 80px;
 	width: 150px;
-	/* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 8px 0 rgba(0,0,0,0.19);*/
+	 /*box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 8px 0 rgba(0,0,0,0.19);*/
 	    /*box-shadow: 5px 10px #888888;*/
+	                /*box-shadow: -3px 0px 5px 10px rgba(0,0,0,0.2);*/
 }
 
 #categories-title {

@@ -1,3 +1,4 @@
+@import url('style.css');
 /* Reset */
 .btn, .btn-border-rev-o:before, .btn-border-rev-o:after {
   -webkit-transition: all 0.3s;
@@ -5,9 +6,10 @@
 }
 
 .btn {
+  float: right ;
   display: inline-block;
   line-height: 35px;
-  margin: 8px;
+  margin: 10px;
   padding: 0 15px;
   font-size: 15px;
   position: relative;
@@ -15,7 +17,6 @@
   border-radius: 3px;
   width: 100px;
     font-family:  'Elephant';
-    /*font-weight: bold;*/
 }
 
 .btn-border-rev-o {

@@ -1,13 +1,16 @@
+@import url('style.css');
 input[type=search] {
+  float:right;
   border: solid 1px #ccc;
   padding: 9px 10px 9px 32px;
-  width: 55px;
-  border-radius: 10em;
+  width: 5vw;
+  border-radius: 5px;
   transition: all .5s; 
+  color:var(--gray-lv2);
 }
 
 input[type=search]:focus {
-  width: 200px;
+  width: 10vw;
   background-color: #fff;
   border-color: #e67e22;
   box-shadow: 0 0 5px rgba(100, 207, 246, .5);
