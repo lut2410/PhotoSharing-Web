@@ -1,0 +1,18 @@
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.demo-image {
+  cursor: url(plus_cursor.png) 25 25, auto;
+  display: inline-block;
+  background-size: cover;
+  background-position: 50% 50%;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-bottom: 16px; }
+  .demo-image.first {
+    background-image: url("http://tholman.com/intense-images/img/h1_small.jpg"); }
+  .demo-image.second {
+    background-position: 50% 10%;
+    background-image: url("http://tholman.com/intense-images/img/v1_small.jpg"); }

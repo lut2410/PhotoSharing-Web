@@ -1,0 +1,22 @@
+.rating > span {
+   content: '\2605';
+   position: relative;
+}
+
+.rating > span {
+	color: black;
+}
+
+.rating {
+	margin-left: 285px;
+	/*margin-left: 0px;*/
+}
+
+#image-detail-rating {
+	font-size: 25px;
+	float: right;
+}
+
+#image-detail-rating > span {
+	
+}

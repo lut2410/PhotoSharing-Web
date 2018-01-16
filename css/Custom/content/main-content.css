@@ -1,9 +1,8 @@
 .content-result {
     margin-left: 10px;
-    /*padding: 10px;*/
+    padding: 10px;
     width: 100%;
-
-    height:;
+    position: absolute;
     background-color: #f5f5f5;
     border-radius: 5px;
     border: solid 1px #d5d5d5;
@@ -15,7 +14,7 @@
 .profile{
     min-height: 28vw;
 }
-.content-image {
+/*.content-image {
 	margin: 10px;
 	padding: 5px;
 	padding-bottom: 20px;
@@ -28,47 +27,131 @@
         box-shadow: 1px 1px 5px #d5d5d5;
     border-radius: 5px;
 }
+*/
+.content-image {
+	width: 340px;
+    height: 190px;
+    top: 0;
+    left: 0;
+    position: relative;
+}
 
 #larger-image {
-	width: 700px;
-	vertical-align: middle;
+	width: 100%;
 }
 
-#overlay {
-    visibility: hidden;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width:100%;
-    height:100%;
-    text-align: center;
-    z-index: 1000;
-    vertical-align: middle;
+.modal { 
+    margin: 1em 0; 
+    width: 300px;
+}
+.modal a.close-modal { border: none; }
+
+@media(max-width: 600px) {
+    a { display: block; margin-bottom: 0.5em; }
+    a.btn { display: block; text-align: center; padding: 1rem; }
 }
 
-#overlay .image-container {
-     width: 800px;
-     margin: 100px auto;
-     background-color: #fff;
-     border:1px solid #000;
-     padding:15px;
-     text-align: center;
-     vertical-align: middle;
+#image-name, #image-view-download, #image-category, #image-size, #image-date-upload {
+
 }
 
-/* The Close Button */
-#close {
-    top: 15px;
-    right: 35px;
-    color: black;
-    font-size: 40px;
+#image-name {
     font-weight: bold;
-    transition: 0.3s;
+    font-size: 1.3em;
 }
 
-#close:hover,
-#close:focus {
-    color: #bbb;
-    text-decoration: none;
+#image-view-download {
+    margin-top: -15px;
+    font-style: italic;
+}
+
+#image-date-upload {
+    margin-top: -15px;
+}
+
+.category:hover {
+    background: none;
+    color: blue;
     cursor: pointer;
 }
+
+.view-larger-image {
+    margin: 4px 4px 0px 4px;
+    width: 340px;
+    height: 190px;
+    display: block;
+    -moz-box-shadow: 1px 1px 5px #d5d5d5;
+    -webkit-box-shadow: 1px 1px 5px #d5d5d5;
+        box-shadow: 1px 1px 5px #d5d5d5;
+    position: relative;
+}
+
+.view-larger-image:hover {
+    text-decoration: none;
+}
+
+.image-container {
+    margin: 5px;
+    width: 350px; 
+    height: 220px;
+    border: solid 1px #d5d5d5;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    position: relative;
+    float: left;
+}
+
+.image-title {
+    float: left;
+    margin-top: -20px;
+    margin-left: 5px;
+}
+
+.photographer-info {
+    margin-top: 7%;
+}
+
+#avatar-image {
+    border-radius: 50%; 
+    width: 50px;
+    margin-left: 30px;
+}
+
+.avatar-user {
+    border-radius: 50%; 
+    width: 30px;
+}
+
+#avatar-image:hover, .avatar-user:hover {
+    cursor: pointer;
+}
+
+#total-photos, #photographer-name {
+    float: right;
+    cursor: pointer;
+}
+
+#total-photos {
+    text-decoration: underline;
+}
+
+#image-detail-favourite-button {
+    width: 50px;
+    cursor: pointer;
+}
+
+#download-button {
+    background-color: #aaaaaa;
+    color: white;
+    border-width: 0px;
+    border-radius: 4px;
+    font-weight: bold;
+    height: 30px;
+    font-size: 15px;
+}
+
+#download-button:focus {
+  color: white;
+  outline-width: 0px;
+}
+
