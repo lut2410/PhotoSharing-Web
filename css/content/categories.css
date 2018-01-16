@@ -1,6 +1,7 @@
 @import url('style.css');
 #categories {
-	width: 150px;
+	min-width: 120px;
+	width:14vw;
 }
 
 #categories-title {

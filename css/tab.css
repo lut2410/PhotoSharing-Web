@@ -5,6 +5,7 @@
   width: 80%;
   float: left;
   margin-bottom: 20px;
+
 }
 
 .tab-slider--tabs {
@@ -48,15 +49,16 @@
 }
 .tab-slider--trigger {
    width: 33%;
-  font-size: 12px;
+  /*font-size: 12px;*/
 
   border-left: 1px solid gray;
   /*border-right: 1px solid gray;*/
   line-height: 1;
-  font-weight: bold;
+  /*font-weight: bold;*/
   color: var(--gray-lv5);
   /*background: linear-gradient( #a3a3a3, #c8c8c8, #a3a3a3);*/
-  text-transform: uppercase;
+/*  text-transform: uppercase;*/
+    font-family:  Elephant;
   text-align: center;
   padding: 11px 20px;
   position: relative;

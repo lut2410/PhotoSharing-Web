@@ -40,7 +40,6 @@
     <script src="js/content/jquery.modal.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/content/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
   	<script type="text/javascript" charset="utf-8"> hljs.initHighlightingOnLoad(); </script>
- 	<!-- custom -->
     	<!-- slider -->
     	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
   		<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js'></script>
@@ -155,20 +154,17 @@
 				</div>
 				<!-- Search -->
 				<div class="col-md-2 col-xs-2">
-					<input type="search" placeholder="Search" style="background: white url(images/search-icon.png) no-repeat 9px center;">
+					<input id="search-button" onkeyup="onKeyUpSearchBtn()" type="search" placeholder="Search" style="background: white url(images/search-icon.png) no-repeat 9px center;">
+					<script src="js/content/button-search.js"></script>
 				</div>
 				<!-- END Search -->	
 			</div>
 
 			<div class = "content-result">
-					<div class="tab-slider--container">
+				<div class="tab-slider--container">
 					<div id="tab1" class="tab-slider--body">
-						<!-- Top photos -->
-						<!-- <div class="col-md-6 col-xs-6">
-							<img src="images/avatar.jpg" alt="Avatar" style="width:38vw ;border-radius: 5px" >
-
-						</div> -->
-										<div id="image-detail" class="modal">
+					<div class="row main-content">
+					<div id="image-detail" class="modal">
 					<img id="larger-image" class="demo-image second" src="image0" data-title="Hahah" data-caption=""/>
 					<script src="js/content/view-full-large-image.js"></script>
 					<div class="row">
@@ -601,15 +597,15 @@
 					</div>
 				<!-- END TAB -->
 				
-		</div>
+			</div>
 
 				
-	</div>
 		</div>
-		
+	</div>
+</div>	
 
 <!-- FOOTER -->
-<div id="footer">
+<<div class="col-md-12 col-xs-12"id="footer">
 	<div class="row">
 		<div class="col-sm-4">
 		</div>
