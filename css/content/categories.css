@@ -12,8 +12,10 @@
 }
 
 .categories-item {
+
 	border-width: 0px 1px 0px 1px;
 	border-color: #c8c8c8;
+	background-color: #f5f5f5;
 	border-style: solid;
 	padding: 5px;
 	cursor: pointer;
@@ -22,7 +24,7 @@
 }
 
 .categories-item:hover {
-	background-color: #c8c8c8;
+	background-color: #eeeeee;
 	padding-left: 15px;
 }
 

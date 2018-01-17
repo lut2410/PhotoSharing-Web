@@ -1,4 +1,5 @@
 .content-result {
+     min-height: 28vw;
     margin-left: 10px;
     padding: 10px;
     width: 100%;
@@ -11,9 +12,9 @@
 .photolist{
     height: 100vw;
 }
-.profile{
-    min-height: 28vw;
-}
+/*.profile{
+   
+}*/
 /*.content-image {
 	margin: 10px;
 	padding: 5px;
