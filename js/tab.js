@@ -22,4 +22,10 @@ $(".tab-slider--nav li").click(function() {
 
   $(".tab-slider--nav li").removeClass("active");
   $(this).addClass("active");
+  document.getElementById("search-button").value = "Uzumaki Naruto";
+
+
 });
+// function searchx(){
+//      $( "#search-button" ).keyup(function(e);
+// }

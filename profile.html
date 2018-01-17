@@ -14,6 +14,14 @@
 	<link rel="stylesheet" type="text/css" href="css/content/main-content.css">
 	<link rel="stylesheet" type="text/css" href="css/upload.css">
 	<link rel="stylesheet" type="text/css" href="css/footer.css">
+	<link rel="stylesheet" type="text/css" href="css/content/image-detail.css">
+	<link rel="stylesheet" type="text/css" href="css/content/rating.css">
+	<link rel="stylesheet" type="text/css" href="css/content/view-full-large-image.css">
+	<link rel="stylesheet" type="text/css" href="css/content/viewimage.css">
+	<link rel="stylesheet" type="text/css" href="css/favourite-button.css">
+	<link rel="stylesheet" type="text/css" href="css/pagination.css">
+	<link rel="stylesheet" type="text/css" href="css/content/comment-box.css">
+	<link rel="shortcut icon" href="images/logo.ico"> 
 <!-- JS -->
 	<!-- library -->
 		<script src="js/library/jquery.min.js"></script>
@@ -26,16 +34,17 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="js/upload-image.js"></script>
+  <script src="js/profile.js"></script>
 <!-- END JS -->
 
 </head>
 <body>
 
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-12" >
 			<!-- Logo -->
-			<div class="col-md-8 col-xs-8">
-				<img src="images/logo.png">
+			<div class="col-md-8 col-xs-8" style=" padding: 10px; padding-left: 0px;">
+				<img src="images/logo.png"  height= 142px>
 			</div>
 			<!-- END Menu -->
 				
@@ -43,8 +52,7 @@
 			<!-- Login -->
 			<div class="col-md-4 col-xs-4	">
 				<button id="menu-toggle" class="btn btn-orange btn-border-rev-o lightingbutton" onclick="window.location.href='index.html'">Log Out</a></button>
-				<!-- <button type="button" onclick="alert('Hello world!')">Click Me!</button> -->
-				<img src="images/avatar.jpg" alt="Avatar" class="btn btn-orange btn-border-rev-o avatar" onclick="window.location.href='profile.html'">
+				<img src="images/avatar.png" alt="Avatar" class="btn btn-orange btn-border-rev-o avatar" onclick="window.location.href='profile.html'">
 				 <button id="menu-toggle" class="btn btn-orange btn-border-rev-o" data-toggle="modal" data-target="#myModal">Upload</button>
   <!-- UPLOAD -->
   <div class="modal fade" id="myModal" role="dialog">
@@ -100,7 +108,7 @@
 					Categories
 				</p>
 			</div>
-			<div class="row categories-item">
+			<div class="row categories-item active-category ">
 				All
 			</div>
 			<div class="row categories-item">
@@ -136,10 +144,10 @@
 			<div class="row categories-item">
 				Travel
 			</div>
-			<div class="row categories-item" style="border-width: 0px 1px 1px 1px;">
+			<div class="row categories-item" style="border-width: 0px 1px 1px 1px; border-radius: 0px 0px 10px 10px;">
 				Vintage
 			</div>
-			
+		<script src="js/content/categories.js"></script>
 		</div>
 		<!-- END Categories -->
 
@@ -155,7 +163,8 @@
 				</div>
 				<!-- Search -->
 				<div class="col-md-2 col-xs-2">
-					<input type="search" placeholder="Search" style="background: white url(images/search-icon.png) no-repeat 9px center;">
+					<input id="search-button" type="search" placeholder="Search" style="background: white url(images/search-icon.png) no-repeat 9px center;">
+					<script src="js/content/button-search.js"></script>
 				</div>
 				<!-- END Search -->	
 
@@ -165,9 +174,10 @@
 
 			<div class = "content-result profile">
 					<div class="tab-slider--container">
+
 					<div id="tab1" class="tab-slider--body">
 						<div class="col-md-6 col-xs-6">
-							<img src="images/avatar.jpg" alt="Avatar" style="width:38vw;border-radius: 5px" >
+							<img src="images/avatar.png" alt="Avatar" style="width:38vw;border-radius: 5px" >
 						</div>
 						<!-- infor -->
 						<div class="col-md-6 col-xs-6">
@@ -178,12 +188,860 @@
 						<p><i><a href="#change_password" target="_blank">Change password</a></i></p>
 						</div>
 					</div>
-					<div id="tab2" class="tab-slider--body">
+					<div id="tab2" class="tab-slider--body" >
+					<!-- detail image -->
+					<div id="image-detail" class="modal">
+						<img id="larger-image" class="demo-image second" src="image0" data-title="Hahah" data-caption=""/>
+						<script src="js/content/view-full-large-image.js"></script>
+					<div class="row">
+						<div class="col-md-7 col-xs-7">
+					  		<p id="image-name">Name</p>
+					  		<p id="image-view-download">View Download: </p>
+					  		<p id="image-category">Categories: </p>
+					  		<p id="image-size">Size: </p>
+					  		<p id="image-date-upload">Date upload: </p>
+						</div>
+					  	<div class="col-md-5 col-xs-5">
+					  		<div class="photographer-info row">
+					  			<div class="col-md-4 col-xs-4">
+					  				<img id="avatar-image" class="row" src="avatar0"/>	
+					  			</div>
+					  			<div class="col-md-8 col-xs-8">
+					  				<span id="photographer-name" class="row">Name</span>
+					  				<span id="total-photos" class="row">Total photos</span>
+					  			</div>
+					  		</div>
+					  		<div id="image-detail-rating" class="row"></div>
+					  	</div>
+				  	</div>
+				  	<div class="row" style="text-align: center">
+				  		<img id="comment-icon" src="images/comment.png">
+				  		<span id="comment-link">Comments</span>
+				  	</div>
+
+				  	<div class="comment-container row">
+				  		<p id="comment-total">5 Comments</p>
+				  		<hr>
+					    <form class="form-inline" role="form">
+					    	<div class="col-md-1 col-xs-1">
+					    		<img class="avatar-user" src="images/user.png">
+					    	</div>
+				      		<div class="col-md-11 col-xs-11 form-group">
+				      			<div class="col-md-10 col-xs-10" style="padding-left: 0px;">
+				      				<input id="comment-input" class="form-control" type="text" placeholder="Your comments" />
+				      			</div>
+					        	<div class="col-md-2 col-xs-2" style="padding-left: 0px; padding-top: 8px">
+					        		<a href="#" class="btn-add-comment">Add</a>
+					        	</div>
+					        	
+				      		</div>
+				    	</form>
+					</div>
+				</div>
+				<!-- end detail image -->
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/1.png" alt="Android_999 views, 500 downloads_Technology_5-10-2016_avatar1.png_Uzumaki Naruto_30 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+					</div>
+					<p class="image-title">Image Title</p>
+					<span class="comment-content" style="visibility: hidden;">Bảo Anh_15 days ago_So cuteeeeeeeee man___Uzumaki Naruto_1 day ago_Hahaha this is funny :)</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/2.png" alt="Beautiful Girl Sit Near Stream_1276 views, 1015 downloads_Movie,People_15-10-2016_avatar2.png_Funny Senjus_125 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
+					</div>
+					<p class="image-title">Image Title</p>
+					<span class="comment-content" style="visibility: hidden;">Uzumaki Naruto_1 hour ago_It's very nice, dude!___Funny Senjus_30 minutes ago_I'm glad to hear that :)___Doraemon_15 minutes ago_A beautiful girl, that's right!!___Doraemon_14 minutes ago_I like it</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/3.png" alt="Landscape Throw The Cup_1670 views, 1522 downloads_Nature_1-7-2015_avatar1.png_Uzumaki Naruto_30 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">Funny Senjus_2 months_Damn!! It's very nice bro</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/4.png" alt="So Cute Litle Girl_5001 views, 4608 downloads_People,Nature_2-9-2017_avatar1.png_Uzumaki Naruto_30 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+					</div>
+					<p class="image-title">Image Title</p>
+				</div>
+
+				<div id="5" class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/5.png" alt="Birds And Child_7777 views, 6969 downloads_Animal,Nature_3-1-2017_avatar2.png_Funny Senjus_125 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
 						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/6.png" alt="Glosbe_3737 views, 3000 downloads_Animal,Nature_3-1-2017_avatar3.png_Doraemon_485 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/7.png" alt="India Girl_9997 views, 8566 downloads_People_4-12-2014_avatar2.png_Funny Senjus_125 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/8.png" alt="White Fox_29025 views, 19783 downloads_Animal,Nature_10-12-2012_avatar3.png_Doraemon_485 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/9.png" alt="Pretty Pretty Girl_73057 views, 68935 downloads_People_27-12-2013_avatar3.png_Doraemon_485 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/10.png" alt="White Tiger_56589 views, 56000 downloads_Animal,Nature_1-1-2018_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/11.png" alt="Baloons In The Air_56589 views, 56000 downloads_Nature_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/12.png" alt="Human And Sunset_56589 views, 56000 downloads_People,Nature_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/13.png" alt="Paint On The Wood_56589 views, 56000 downloads_Love_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/14.png" alt="Old City_56589 views, 56000 downloads_City,Nature_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/15.png" alt="Street In The Autumn_56589 views, 56000 downloads_Nature_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/16.png" alt="Earth In Space_56589 views, 56000 downloads_Space_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/17.png" alt="Vegetables_56589 views, 56000 downloads_Food&Drink_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/18.png" alt="Colorful Candies_56589 views, 56000 downloads_Food&Drink_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/19.png" alt="Many candies_56589 views, 56000 downloads_Food&Drink_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/20.png" alt="Delicious Ice-creams_56589 views, 56000 downloads_Food&Drink_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/21.png" alt="Instruments_56589 views, 56000 downloads_Music_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/22.png" alt="The Girl Plays Violen_56589 views, 56000 downloads_People,Music_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/23.png" alt="New Iphone-Iphone X_56589 views, 56000 downloads_Technology_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/24.png" alt="Special Type Of Iphone_56589 views, 56000 downloads_Technology_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+				<script src="js/content/show-image-detail.js" type="text/javascript" charset="utf-8"></script>
+			<!-- end all image -->
+		<!-- page -->
+					<div class="cdp row" actpage="1">
+				<a href="#!-1" class="cdp_i" id="pagePrev"><< Prev</a>
+				<a href="#!1" class="cdp_i">1</a>
+				<a href="#!2" class="cdp_i">2</a>
+				<a href="#!3" class="cdp_i">3</a>
+				<a href="#!4" class="cdp_i">4</a>
+				<a href="#!5" class="cdp_i">5</a>
+				<a href="#!6" class="cdp_i">6</a>
+				<a href="#!7" class="cdp_i">7</a>
+				<a href="#!8" class="cdp_i">8</a>
+				<a href="#!9" class="cdp_i">9</a>
+				<a href="#!10" class="cdp_i">10</a>
+				<a href="#!11" class="cdp_i">11</a>
+				<a href="#!12" class="cdp_i">12</a>
+				<a href="#!13" class="cdp_i">13</a>
+				<a href="#!14" class="cdp_i">14</a>
+				<a href="#!15" class="cdp_i">15</a>
+	      		<a href="#!16" class="cdp_i">16</a>
+				<a href="#!17" class="cdp_i">17</a>
+				<a href="#!18" class="cdp_i">18</a>
+				<a href="#!19" class="cdp_i">19</a>
+				<a href="#!+1" class="cdp_i" id="pageNext">Next >></a>
+				</div>						
 					</div>
 					<div id="tab3" class="tab-slider--body">
-						
+											<!-- detail image -->
+					<div id="image-detail" class="modal">
+						<img id="larger-image" class="demo-image second" src="image0" data-title="Hahah" data-caption=""/>
+						<script src="js/content/view-full-large-image.js"></script>
+					<div class="row">
+						<div class="col-md-7 col-xs-7">
+					  		<p id="image-name">Name</p>
+					  		<p id="image-view-download">View Download: </p>
+					  		<p id="image-category">Categories: </p>
+					  		<p id="image-size">Size: </p>
+					  		<p id="image-date-upload">Date upload: </p>
+						</div>
+					  	<div class="col-md-5 col-xs-5">
+					  		<div class="photographer-info row">
+					  			<div class="col-md-4 col-xs-4">
+					  				<img id="avatar-image" class="row" src="avatar0"/>	
+					  			</div>
+					  			<div class="col-md-8 col-xs-8">
+					  				<span id="photographer-name" class="row">Name</span>
+					  				<span id="total-photos" class="row">Total photos</span>
+					  			</div>
+					  		</div>
+					  		<div id="image-detail-rating" class="row"></div>
+					  	</div>
+				  	</div>
+				  	<div class="row" style="text-align: center">
+				  		<img id="comment-icon" src="images/comment.png">
+				  		<span id="comment-link">Comments</span>
+				  	</div>
+
+				  	<div class="comment-container row">
+				  		<p id="comment-total">5 Comments</p>
+				  		<hr>
+					    <form class="form-inline" role="form">
+					    	<div class="col-md-1 col-xs-1">
+					    		<img class="avatar-user" src="images/user.png">
+					    	</div>
+				      		<div class="col-md-11 col-xs-11 form-group">
+				      			<div class="col-md-10 col-xs-10" style="padding-left: 0px;">
+				      				<input id="comment-input" class="form-control" type="text" placeholder="Your comments" />
+				      			</div>
+					        	<div class="col-md-2 col-xs-2" style="padding-left: 0px; padding-top: 8px">
+					        		<a href="#" class="btn-add-comment">Add</a>
+					        	</div>
+					        	
+				      		</div>
+				    	</form>
 					</div>
+				</div>
+				<!-- end detail image -->
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/1.png" alt="Android_999 views, 500 downloads_Technology_5-10-2016_avatar1.png_Uzumaki Naruto_30 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+					</div>
+					<p class="image-title">Image Title</p>
+					<span class="comment-content" style="visibility: hidden;">Bảo Anh_15 days ago_So cuteeeeeeeee man___Uzumaki Naruto_1 day ago_Hahaha this is funny :)</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/2.png" alt="Beautiful Girl Sit Near Stream_1276 views, 1015 downloads_Movie,People_15-10-2016_avatar2.png_Funny Senjus_125 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
+					</div>
+					<p class="image-title">Image Title</p>
+					<span class="comment-content" style="visibility: hidden;">Uzumaki Naruto_1 hour ago_It's very nice, dude!___Funny Senjus_30 minutes ago_I'm glad to hear that :)___Doraemon_15 minutes ago_A beautiful girl, that's right!!___Doraemon_14 minutes ago_I like it</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/3.png" alt="Landscape Throw The Cup_1670 views, 1522 downloads_Nature_1-7-2015_avatar1.png_Uzumaki Naruto_30 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">Funny Senjus_2 months_Damn!! It's very nice bro</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/4.png" alt="So Cute Litle Girl_5001 views, 4608 downloads_People,Nature_2-9-2017_avatar1.png_Uzumaki Naruto_30 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+					</div>
+					<p class="image-title">Image Title</p>
+				</div>
+
+				<div id="5" class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/5.png" alt="Birds And Child_7777 views, 6969 downloads_Animal,Nature_3-1-2017_avatar2.png_Funny Senjus_125 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/6.png" alt="Glosbe_3737 views, 3000 downloads_Animal,Nature_3-1-2017_avatar3.png_Doraemon_485 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/7.png" alt="India Girl_9997 views, 8566 downloads_People_4-12-2014_avatar2.png_Funny Senjus_125 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/8.png" alt="White Fox_29025 views, 19783 downloads_Animal,Nature_10-12-2012_avatar3.png_Doraemon_485 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/9.png" alt="Pretty Pretty Girl_73057 views, 68935 downloads_People_27-12-2013_avatar3.png_Doraemon_485 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/10.png" alt="White Tiger_56589 views, 56000 downloads_Animal,Nature_1-1-2018_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/11.png" alt="Baloons In The Air_56589 views, 56000 downloads_Nature_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/12.png" alt="Human And Sunset_56589 views, 56000 downloads_People,Nature_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/13.png" alt="Paint On The Wood_56589 views, 56000 downloads_Love_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/14.png" alt="Old City_56589 views, 56000 downloads_City,Nature_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/15.png" alt="Street In The Autumn_56589 views, 56000 downloads_Nature_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/16.png" alt="Earth In Space_56589 views, 56000 downloads_Space_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/17.png" alt="Vegetables_56589 views, 56000 downloads_Food&Drink_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/18.png" alt="Colorful Candies_56589 views, 56000 downloads_Food&Drink_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/19.png" alt="Many candies_56589 views, 56000 downloads_Food&Drink_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/20.png" alt="Delicious Ice-creams_56589 views, 56000 downloads_Food&Drink_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/21.png" alt="Instruments_56589 views, 56000 downloads_Music_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/22.png" alt="The Girl Plays Violen_56589 views, 56000 downloads_People,Music_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/23.png" alt="New Iphone-Iphone X_56589 views, 56000 downloads_Technology_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+
+				<div class="image-container">
+					<a class="view-larger-image" href="#image-detail" rel="modal:open">
+						<img class="content-image" src="images/sources/24.png" alt="Special Type Of Iphone_56589 views, 56000 downloads_Technology_4-1-2009_avatar4.png_Bảo Anh_985 photos">
+					</a>
+					<img class="favourite-button-on-small-image" src="images/favourite-white.png">
+					<div class="rating">
+						<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+					</div>
+					<p class="image-title">Image Title</p>
+
+					<span class="comment-content" style="visibility: hidden;">
+						
+					</span>
+				</div>
+				<script src="js/content/show-image-detail.js" type="text/javascript" charset="utf-8"></script>
+			<!-- end all image -->
+		<!-- page -->
+					<div class="cdp row" actpage="1">
+				<a href="#!-1" class="cdp_i" id="pagePrev"><< Prev</a>
+				<a href="#!1" class="cdp_i">1</a>
+				<a href="#!2" class="cdp_i">2</a>
+				<a href="#!3" class="cdp_i">3</a>
+				<a href="#!4" class="cdp_i">4</a>
+				<a href="#!5" class="cdp_i">5</a>
+				<a href="#!6" class="cdp_i">6</a>
+				<a href="#!7" class="cdp_i">7</a>
+				<a href="#!8" class="cdp_i">8</a>
+				<a href="#!9" class="cdp_i">9</a>
+				<a href="#!10" class="cdp_i">10</a>
+				<a href="#!11" class="cdp_i">11</a>
+				<a href="#!12" class="cdp_i">12</a>
+				<a href="#!13" class="cdp_i">13</a>
+				<a href="#!14" class="cdp_i">14</a>
+				<a href="#!15" class="cdp_i">15</a>
+	      		<a href="#!16" class="cdp_i">16</a>
+				<a href="#!17" class="cdp_i">17</a>
+				<a href="#!18" class="cdp_i">18</a>
+				<a href="#!19" class="cdp_i">19</a>
+				<a href="#!+1" class="cdp_i" id="pageNext">Next >></a>
+				</div>
+			</div>
+			
+
 				</div>
 				<!-- END TAB -->
 			</div>
@@ -194,7 +1052,7 @@
 
 <!-- FOOTER -->
 <!-- <footer> -->
-<div id="footer">
+<div id="footer"  style = "margin-top: 20px">
 	<div class="row">
 		<div class="col-sm-4">
 		</div>
