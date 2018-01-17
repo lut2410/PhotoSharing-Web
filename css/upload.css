@@ -1,0 +1,50 @@
+.modal {
+  text-align: center;
+
+}
+
+@media screen and (min-width: 768px) { 
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+    font-family:  Elephant;
+}
+.upload-btn-wrapper {
+
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.upload-btn-wrapper input[type=file] {
+  height: 400px;
+  width: 500px;
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+.upload-btn {
+  cursor: pointer;
+  float: right ;
+  display: inline-block;
+  line-height: 35px;
+  margin: 10px;
+  padding: 0 15px;
+  font-size: 15px;
+  position: relative;
+  opacity: .999;
+  border-radius: 3px;
+  width: 300px;
+    font-family:  'Elephant';
+}

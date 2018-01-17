@@ -12,18 +12,25 @@
 	<link rel="stylesheet" type="text/css" href="css/content/categories.css">
 	<link rel="stylesheet" type="text/css" href="css/tab.css">
 	<link rel="stylesheet" type="text/css" href="css/content/main-content.css">
+	<link rel="stylesheet" type="text/css" href="css/upload.css">
 	<link rel="stylesheet" type="text/css" href="css/footer.css">
 <!-- JS -->
 	<!-- library -->
 		<script src="js/library/jquery.min.js"></script>
     	<script src="js/library/bootstrap/bootstrap.bundle.min.js"></script>
     	<script src="js/library/bootstrap/bootstrap.min.js"></script>
+    	<script src="js/content/jquery.modal.js" type="text/javascript" charset="utf-8"></script>
+    	<script src="js/content/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+  		<script type="text/javascript" charset="utf-8"> hljs.initHighlightingOnLoad(); </script>
  	<!-- custom -->
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/read-image.js"></script>
 <!-- END JS -->
 
 </head>
 <body>
+
 	<div class="row">
 		<div class="col-md-12">
 			<!-- Logo -->
@@ -31,14 +38,42 @@
 				<img src="images/logo.png">
 			</div>
 			<!-- END Menu -->
+				
 
 			<!-- Login -->
 			<div class="col-md-4 col-xs-4	">
 				<button id="menu-toggle" class="btn btn-orange btn-border-rev-o lightingbutton" onclick="window.location.href='index.html'">Log Out</a></button>
 				<!-- <button type="button" onclick="alert('Hello world!')">Click Me!</button> -->
 				<img src="images/avatar.jpg" alt="Avatar" class="btn btn-orange btn-border-rev-o avatar" onclick="window.location.href='profile.html'">
-				<button id="menu-toggle" class="btn btn-orange btn-border-rev-o" >Upload</button>
-
+				 <button id="menu-toggle" class="btn btn-orange btn-border-rev-o" data-toggle="modal" data-target="#myModal">Upload</button>
+  <!-- UPLOAD -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+        	<div class="upload-btn-wrapper">
+        		<!-- <img src="images/upload.png" alt="upload" class = "upload-btn"> -->
+        		<img id="blah" src="images/upload.png" alt="" style = "width: 500px" class = "upload-btn"/>
+  			<input type='file' onchange="readURL(this);" />
+			</div>
+          <h2><font face = Elephant color="#444444">Choose a photo to upload</font></h2>
+          <h3><font color="#888888">(Can drag and drop)</font></h3>
+		<p id="upload_hide">Hide</p>
+		<button id="upload_show">Show</button>
+ 
+        </div>
+        <div class="modal-footer">
+<!--           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+        </div>
+      </div>    
+    </div>
+  </div>
+  <!-- END UPLOAD -->
+</div>
 			</div>
 			<!-- END Login -->
 		</div>
@@ -175,8 +210,13 @@
 	</div>
 <!-- END FOOTER -->
 </div>
-  		<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
- 		<script src="js/tab.js"></script>
+<!-- FORM UPLOAD -->
+<!-- <form id="upload-form" class="modal" action="http://phpoll.com/register/process" method="post" role="form" style="display: none;">
+	<h1 style="text-align: center">Choose a photo to upload</h1>
+</form> -->
+<!-- END UPLOAD -->
+  	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+ 	<script src="js/tab.js"></script>
 
 </body>
 </html>
