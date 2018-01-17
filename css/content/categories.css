@@ -1,7 +1,5 @@
-@import url('style.css');
 #categories {
-	min-width: 120px;
-	width:14vw;
+	width: 150px;
 }
 
 #categories-title {
@@ -10,12 +8,10 @@
 	border-radius: 10px 10px 0px 0px;
 	padding: 10px 10px 0px 0px;
 	text-align: center;
-	font-family:  Elephant;
 	vertical-align: middle;
 }
 
 .categories-item {
-	background: #f4f4f4;
 	border-width: 0px 1px 0px 1px;
 	border-color: #c8c8c8;
 	border-style: solid;
@@ -26,6 +22,11 @@
 }
 
 .categories-item:hover {
+	background-color: #c8c8c8;
+	padding-left: 15px;
+}
+
+.active-category {
 	background-color: #c8c8c8;
 	padding-left: 15px;
 }

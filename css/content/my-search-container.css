@@ -1,4 +1,8 @@
 @import url('style.css');
+input:focus{
+    color:var(--gray-lv5);
+      /*border-color: var(--gray-lv5);*/
+}
 input[type=search] {
   float:right;
   border: solid 1px #ccc;
@@ -12,7 +16,8 @@ input[type=search] {
 input[type=search]:focus {
   width: 10vw;
   background-color: #fff;
-  border-color: #e67e22;
+  /*border-color: #e67e22;*/
+  border-color: #000000;
   box-shadow: 0 0 5px rgba(100, 207, 246, .5);
   outline-width: 0px;
 }

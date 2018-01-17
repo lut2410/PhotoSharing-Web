@@ -56,17 +56,29 @@
         </div>
         <div class="modal-body">
         	<div class="upload-btn-wrapper">
-        		<!-- <img src="images/upload.png" alt="upload" class = "upload-btn"> -->
-        		<img id="blah" src="images/upload.png" alt="" style = "width: 500px" class = "upload-btn"/>
-  			<input type='file' onchange="readURL(this);" />
+        		<img id="blah" src="images/upload.png" alt=""  class = "upload-btn" />
+
+  				<input type='file' onchange="readURL(this);" />
 			</div>
-          <h2><font face = Elephant color="#444444">Choose a photo to upload</font></h2>
-          <h3><font color="#888888">(Can drag and drop)</font></h3>
-		<p id="upload_hide">Hide</p>
-		<button id="upload_show">Show</button>
- 
         </div>
         <div class="modal-footer">
+        <!-- detail instruction -->
+		<div id="detail_instruction" style="display:block;">
+          	<h2><font face = Elephant color="#444444">Choose a photo to upload</font></h2>
+          	<h3><font color="#888888">(Can drag and drop)</font></h3>
+      	</div>
+      	<!-- end detail instruction -->
+       	<!-- detail upload -->
+   		<div id="detail_upload" style="display:none">
+   			<label for="fname"><h4><font face = Elephant color="#444444">Name: </font></h4></label>
+   	
+        	<input type='nameinput' id='name' name='name'><br>
+
+        	<button id="menu-toggle" class="btn btn-orange btn-border-rev-o upl-btn" data-dismiss="modal">Upload</button>
+        	<label for="fname"><h4><font face = Elephant color="#444444">Category: </font></h4></label>
+        	<input type='cateinput' id='cate' name='cate'>
+   		 </div>
+    	<!-- end detail upload -->
 <!--           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
         </div>
       </div>    
